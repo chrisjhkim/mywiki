@@ -1,0 +1,104 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" 
+		content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width", initial-scale="1">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
+<title>Login Page 0017 </title>
+<script type="text/javascript">
+function loginCheck(){
+	var id = $("#userId").val();
+	var pw = $("#userPassword").val();
+	var flag = true;
+	console.log(id + ' ' +pw);
+	$.ajax({
+		type:"POST",
+		data:'userId='+id+'&userPassword='+pw,
+		dataType : "json",
+		url:"loginCheck",
+		async:false,
+		success:function (data) {
+			console.log(data);
+			if(data["resultCode"] == '0000'){
+				alert('로그인합니다.');
+				flag = true;
+			} else if ( data["resultCode"]=='1001'){
+				alert('아이디,비밀번호를 확인해주세요.');
+				flag = false;
+			}else{
+				alert('서버 통신 오류');
+			}
+		},
+		error:function(request, error){
+			console.log('ERROR!');
+			console.log(request);
+			console.log(error);
+		}
+		
+	});
+	return flag;
+}
+</script>
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" 
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="main">JSP 게시판 웹 사이트</a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="main">메인</a>
+				<li><a href="bbs">게시판</a>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" 
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">접속하기<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li class="active"><a href="login">로그인</a></li>
+						<li><a href="join">회원가입</a></li>
+					</ul>
+				</li>
+			</ul>
+			
+			
+		</div>
+	</nav>
+	<div class="container">
+		<div class="col-lg-4"></div>
+		<div class="col-lg-4">
+			<div class="jumbotron" style="padding-top:20px">
+				<form method="post" action="loginAction" onsubmit="return loginCheck()">
+					<h3 style="text-align: center;">로그인 화면</h3>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="아이디" name="userId" id="userId" maxlength="20">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" id="userPassword" maxlength="20">
+					</div>
+					<input type="submit" class="btn btn-primary form-control" value="로그인">
+					
+				</form>
+			</div>
+		</div>
+		<div class="col-lg-4"></div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	
+	login page 1
+</body>
+</html>
