@@ -108,15 +108,15 @@
 					</thead>
 					<tbody>
 						<c:forEach var="board" items="${boardList}">
-						<tr>
-							<td>${board.bbsID}</td>
-							<td><a href="view.jsp?bbsID=${board.bbsID}}">${board.bbsTitle.replaceAll("<", "&lt;")
-																			.replaceAll(" ", "&nbsp;")
-																			.replaceAll("<", "&lt;")
-																			.replaceAll(">", "&gt")}</a></td>
-							<td>${board.userID}</td>
-	 						<td>${board.bbsDate.substring(0,11)} ${board.bbsDate.substring(11,13)}시 ${board.bbsDate.substring(14,16)}분 </td>
-						</tr>
+<!-- 						<tr> -->
+<%-- 							<td>${board.bbsID}</td> --%>
+<%-- 							<td><a href="view?no=${board.bbsID}}">${board.bbsTitle.replaceAll("<", "&lt;") --%>
+<%-- 																			.replaceAll(" ", "&nbsp;") --%>
+<%-- 																			.replaceAll("<", "&lt;") --%>
+<%-- 																			.replaceAll(">", "&gt")}</a></td> --%>
+<%-- 							<td>${board.userID}</td> --%>
+<%-- 	 						<td>${board.bbsDate.substring(0,11)} ${board.bbsDate.substring(11,13)}시 ${board.bbsDate.substring(14,16)}분 </td> --%>
+<!-- 						</tr> -->
 						</c:forEach>
 						<%
 							//BbsDAO bbsDAO = new BbsDAO();
@@ -125,7 +125,7 @@
 						%>
 						<tr>
 							<td>13</td>
-							<td><a href="view.jsp?bbsID=13">13번글</a></td>
+							<td><a href="view?no=13">13번글</a></td>
 							<td>13유저</td>
 	 						<td>대충 시간 00시00분</td>
 						</tr>
@@ -138,15 +138,15 @@
 					//if( pageNumber != 1 ) {
 						
 				%>
-					<a href="bbs.jsp?pageNumber=<%=pageNumber -1 %>" class="btn btn-success btn-arrow-left">이전</a>
+					<a href="board?page=<%=pageNumber -1 %>" class="btn btn-success btn-arrow-left">이전</a>
 				<%
 					//}if ( bbsDAO.nextPage(pageNumber+1)){
 				%>
-						<a href="bbs.jsp?pageNumber=<%=pageNumber +1 %>" class="btn btn-success btn-arrow-right">다음</a>
+						<a href="board?page=<%=pageNumber +1 %>" class="btn btn-success btn-arrow-right">다음</a>
 				<%	
 					//}
 				%>
-				<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+				<a href="write" class="btn btn-primary pull-right">글쓰기</a>
 			</div>
 			<div class="col-sm-3">
 			<div class="sidebar-module">

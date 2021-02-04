@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -148,5 +149,29 @@ public class DemoController {
 			session.removeAttribute("userId");
 		}
 		return "redirect:/main";
+	}
+	
+	@RequestMapping("/write")
+	public ModelAndView write(ModelAndView mav, HttpSession session) {
+		if( session.getAttribute("userId") == null ) {
+			mav.setViewName("login");
+		}else {
+			mav.setViewName("write");
+		}
+		return mav;
+	}
+	@RequestMapping("/writeAction")
+	public ModelAndView writeAction(@ModelAttribute Board board,  ModelAndView mav, HttpSession session) {
+		System.out.println("/writeAction");
+		if( session.getAttribute("userId") == null ) {
+			mav.setViewName("login");
+		}else {
+			System.out.println("input = "+board);
+			board.setUserNo(1);
+			int result = boardService.insertBoard(board);
+			System.out.println("insert result = "+result);
+		}
+		mav.setViewName("board");
+		return mav;
 	}
 }

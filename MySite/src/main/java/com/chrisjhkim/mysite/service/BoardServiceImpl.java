@@ -23,4 +23,12 @@ public class BoardServiceImpl implements BoardService {
 		return list;
 	}
 
+	@Override
+	public int insertBoard(Board board) {
+		System.out.println("insert board ");
+		int result = 0;
+		result = boardDao.insertBoard(board);
+		return result;
+	}
+
 }

@@ -14,10 +14,9 @@
 <body>
 	<%
 		String userID = null;
-		if (session.getAttribute("userID")!=null){
+		if (session.getAttribute("userId")!=null){
 			userID = (String)session.getAttribute("userID");
 		}
-	
 	%>
 
 	<nav class="navbar navbar-default">
@@ -29,12 +28,12 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트</a>
+			<a class="navbar-brand" href="main">JSP 게시판 웹 사이트</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">메인</a>
-				<li class="active"><a href="bbs.jsp">게시판</a>
+				<li><a href="main">메인</a>
+				<li class="active"><a href="bbs">게시판</a>
 			</ul>
 			<%
 				if( userID == null ) {
@@ -46,8 +45,8 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">접속하기<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
+						<li><a href="login">로그인</a></li>
+						<li><a href="join">회원가입</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -61,7 +60,7 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">회원관리<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">로그아웃</a></li>
+						<li><a href="logoutAction">로그아웃</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -74,7 +73,7 @@
 	</nav>
 	<div class="container">
 		<div class="row">
-			<form method="post" action="writeAction.jsp">
+			<form method="post" action="writeAction">
 				<table class="table table-striped" style="text-align:center; border: 1px solid #dddddd">
 					<thead>
 						<tr>
@@ -83,10 +82,10 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50"> </td>
+							<td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="50"> </td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;"></textarea> </td>
+							<td><textarea class="form-control" placeholder="글 내용" name="content" maxlength="2048" style="height: 350px;"></textarea> </td>
 						</tr>
 					</tbody>
 				</table>

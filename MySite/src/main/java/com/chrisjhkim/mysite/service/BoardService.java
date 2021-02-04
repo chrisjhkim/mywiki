@@ -7,4 +7,6 @@ import com.chrisjhkim.mysite.vo.Board;
 public interface BoardService {
 
 	public List<Board> getAllList();
+	
+	public int insertBoard(Board board);
 }

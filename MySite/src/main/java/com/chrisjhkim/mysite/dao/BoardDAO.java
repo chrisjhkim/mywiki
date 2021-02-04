@@ -10,6 +10,7 @@ import com.chrisjhkim.mysite.vo.Board;
 public interface BoardDAO {
 	
 	public List<Board> getAllList();
+	public int insertBoard(Board board);
 
 	
 }

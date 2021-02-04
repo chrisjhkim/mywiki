@@ -2,55 +2,54 @@ package com.chrisjhkim.mysite.vo;
 
 public class Board {
 	
-	private int bbsID;
-	private String bbsTitle;
-	private String userID;
-	private String bbsDate;
-	private String bbsContent;
-	private int bbsAvailable;
-
-	public int getBbsID() {
-		return bbsID;
+	private int contentNo;
+	private String title;
+	private String content;
+	private int userNo;
+	private String regDate;
+	private String status;
+	public int getContentNo() {
+		return contentNo;
 	}
-	public void setBbsID(int bbsID) {
-		this.bbsID = bbsID;
+	public void setContentNo(int contentNo) {
+		this.contentNo = contentNo;
 	}
-	public String getBbsTitle() {
-		return bbsTitle;
+	public String getTitle() {
+		return title;
 	}
-	public void setBbsTitle(String bbsTitle) {
-		this.bbsTitle = bbsTitle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getUserID() {
-		return userID;
+	public String getContent() {
+		return content;
 	}
-	public void setUserID(String userID) {
-		this.userID = userID;
+	public void setContent(String content) {
+		this.content = content;
 	}
-	public String getBbsDate() {
-		return bbsDate;
+	public int getUserNo() {
+		return userNo;
 	}
-	public void setBbsDate(String bbsDate) {
-		this.bbsDate = bbsDate;
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
 	}
-	public String getBbsContent() {
-		return bbsContent;
+	public String getRegDate() {
+		return regDate;
 	}
-	public void setBbsContent(String bbsContent) {
-		this.bbsContent = bbsContent;
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}
-	public int getBbsAvailable() {
-		return bbsAvailable;
+	public String getStatus() {
+		return status;
 	}
-	public void setBbsAvailable(int bbsAvailable) {
-		this.bbsAvailable = bbsAvailable;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-
 	@Override
 	public String toString() {
-		return "Board [bbsID=" + bbsID + ", bbsTitle=" + bbsTitle + ", userID=" + userID + ", bbsDate=" + bbsDate
-				+ ", bbsContent=" + bbsContent + ", bbsAvailable=" + bbsAvailable + "]";
+		return "Board [contentNo=" + contentNo + ", title=" + title + ", content=" + content + ", userNo=" + userNo
+				+ ", regDate=" + regDate + ", status=" + status + "]";
 	}
+
 	
 	
 }
