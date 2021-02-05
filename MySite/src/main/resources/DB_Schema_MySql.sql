@@ -4,9 +4,9 @@ CREATE TABLE `tag_info` (
   PRIMARY KEY (`tagNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `tag_board_relation` (
+CREATE TABLE `tag_content_relation` (
   `tagNo` int NOT NULL,
-  `boardNo` int NOT NULL
+  `contentNo` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
