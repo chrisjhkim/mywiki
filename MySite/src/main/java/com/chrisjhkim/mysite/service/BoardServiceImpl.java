@@ -1,6 +1,9 @@
 package com.chrisjhkim.mysite.service;
 
+import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +32,16 @@ public class BoardServiceImpl implements BoardService {
 		int result = 0;
 		result = boardDao.insertBoard(board);
 		return result;
+	}
+
+	@Override
+	public List<HashMap<String, Object>> getBoardList() {
+		Map<String, Object> input = new HashMap<String, Object>();
+		List<HashMap<String,Object>> retList = boardDao.getActiveBoardList(input);
+		for ( int i = 0 ; i < retList.size(); i ++ ) {
+			retList.get(i).put("regDate", retList.get(i).get("regDate").toString());
+		}
+		return retList;
 	}
 
 }

@@ -10,6 +10,18 @@
 			*
 		FROM board
 	</select>
+	<select id="getActiveBoardList" parameterType="map" resultType="map">
+		SELECT 
+			b.contentNo
+			, b.title
+			, b.content
+			, b.regDate
+			, b.status
+			, users.userId  
+		FROM board b 
+		LEFT JOIN users ON users.userNo = b.userNo
+		WHERE b.status=1
+	</select>
 	<insert id="insertBoard" parameterType="com.chrisjhkim.mysite.vo.Board">
 		INSERT INTO board(
 			title

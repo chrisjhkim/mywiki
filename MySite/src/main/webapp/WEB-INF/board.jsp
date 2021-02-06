@@ -108,15 +108,15 @@
 					</thead>
 					<tbody>
 						<c:forEach var="board" items="${boardList}">
-<!-- 						<tr> -->
-<%-- 							<td>${board.bbsID}</td> --%>
-<%-- 							<td><a href="view?no=${board.bbsID}}">${board.bbsTitle.replaceAll("<", "&lt;") --%>
-<%-- 																			.replaceAll(" ", "&nbsp;") --%>
-<%-- 																			.replaceAll("<", "&lt;") --%>
-<%-- 																			.replaceAll(">", "&gt")}</a></td> --%>
-<%-- 							<td>${board.userID}</td> --%>
-<%-- 	 						<td>${board.bbsDate.substring(0,11)} ${board.bbsDate.substring(11,13)}시 ${board.bbsDate.substring(14,16)}분 </td> --%>
-<!-- 						</tr> -->
+						<tr>
+							<td>${board.contentNo}</td>
+							<td><a href="view?no=${board.contentNo}}">${board.title.replaceAll("<", "&lt;")
+																			.replaceAll(" ", "&nbsp;")
+																			.replaceAll("<", "&lt;")
+																			.replaceAll(">", "&gt")}</a></td>
+							<td>${board.userId}</td>
+							<td>${board.regDate.substring(0,11)} ${board.regDate.substring(11,13)}시 ${board.regDate.substring(14,16)}분 </td>
+						</tr>
 						</c:forEach>
 						<%
 							//BbsDAO bbsDAO = new BbsDAO();

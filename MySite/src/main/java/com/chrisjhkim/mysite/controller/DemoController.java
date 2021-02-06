@@ -51,12 +51,10 @@ public class DemoController {
 		System.out.println("board - GET");
 		mav.setViewName("board");
 		
-		List<Board> list = boardService.getAllList();
-		for ( int i = 0 ; i < list.size() ; i ++ ) {
-//			list.get(i).getBbsTitle().replaceAll("<", "&lt;");
-		}
+//		List<Board> list = boardService.getAllList();
+		List<HashMap<String, Object>> list = boardService.getBoardList();
+		System.out.println(list);
 		mav.addObject("boardList", list);
-		
 		return mav;
 	}
 	@RequestMapping("/join")
