@@ -8,6 +8,15 @@ public class Board {
 	private int userNo;
 	private String regDate;
 	private String status;
+	
+	private String userId;
+	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	public int getContentNo() {
 		return contentNo;
 	}
@@ -47,9 +56,10 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [contentNo=" + contentNo + ", title=" + title + ", content=" + content + ", userNo=" + userNo
-				+ ", regDate=" + regDate + ", status=" + status + "]";
+				+ ", regDate=" + regDate + ", status=" + status + ", userId=" + userId + "]";
 	}
 
+	
 	
 	
 }

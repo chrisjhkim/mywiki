@@ -26,8 +26,8 @@
 <body>
 	<%
 		String userID = null;
-		if (session.getAttribute("userID")!=null){
-			userID = (String)session.getAttribute("userID");
+		if (session.getAttribute("userId")!=null){
+			userID = (String)session.getAttribute("userId");
 		}
 		int pageNumber = 1;
 		if ( request.getParameter("pageNumber")!= null ) {
@@ -110,7 +110,7 @@
 						<c:forEach var="board" items="${boardList}">
 						<tr>
 							<td>${board.contentNo}</td>
-							<td><a href="view?no=${board.contentNo}}">${board.title.replaceAll("<", "&lt;")
+							<td><a href="view?no=${board.contentNo}">${board.title.replaceAll("<", "&lt;")
 																			.replaceAll(" ", "&nbsp;")
 																			.replaceAll("<", "&lt;")
 																			.replaceAll(">", "&gt")}</a></td>
@@ -171,7 +171,5 @@
 	</div>
  	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
-	
-	Main page 1
 </body>
 </html>

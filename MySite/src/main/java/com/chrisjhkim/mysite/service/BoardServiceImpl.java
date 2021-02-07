@@ -44,4 +44,12 @@ public class BoardServiceImpl implements BoardService {
 		return retList;
 	}
 
+	@Override
+	public Board getBoardContent(int contentNo) {
+		Board board = boardDao.getBoardContent(contentNo);
+		return board;
+	}
+	
+	
+
 }

@@ -21,7 +21,21 @@
 		FROM board b 
 		LEFT JOIN users ON users.userNo = b.userNo
 		WHERE b.status=1
+		ORDER BY b.regDate DESC
 	</select>
+	<select id="getBoardContent" parameterType="int" resultType="com.chrisjhkim.mysite.vo.Board">
+		SELECT 
+			b.contentNo
+			, b.title
+			, b.content
+			, b.regDate
+			, b.status
+			, users.userId  
+		FROM board b 
+		LEFT JOIN users ON users.userNo = b.userNo
+		WHERE b.contentNo=#{contentNo}
+	</select>
+	
 	<insert id="insertBoard" parameterType="com.chrisjhkim.mysite.vo.Board">
 		INSERT INTO board(
 			title

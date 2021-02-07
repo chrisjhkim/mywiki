@@ -15,12 +15,15 @@ public interface BoardDAO {
 	public int insertBoard(Board board);
 
 	public List<HashMap<String, Object>> getActiveBoardList(Map<String, Object> map);
+	public Board getBoardContent(int contentNo);
+	
 	// select * from tag table where value = map.value ;
 //	public Tag getTag(Hashmap map);
 	// insert into tag table
 //	public int insertNewTag(String name);
 	// insert into tag_content_relation table 
 //	public int insertTagContentRelation(List<Map<String,Object>> list);
+	
 	
 	
 	

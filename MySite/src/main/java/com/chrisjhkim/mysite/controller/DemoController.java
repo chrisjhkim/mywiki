@@ -57,6 +57,20 @@ public class DemoController {
 		mav.addObject("boardList", list);
 		return mav;
 	}
+	
+	@RequestMapping(value="/view", method=RequestMethod.GET)
+	public ModelAndView view(ModelAndView mav, HttpServletRequest request) {
+		System.out.println("/view");
+		mav.setViewName("view");
+		int contentNo = Integer.parseInt(request.getParameter("no"));
+		Board board = boardService.getBoardContent(contentNo);
+		System.out.println(board);
+//		mav.addObject(board);
+		mav.addObject("board",board);
+		System.out.println();
+		return mav;
+	}
+	
 	@RequestMapping("/join")
 	public String join() {
 		return "join";
@@ -169,7 +183,7 @@ public class DemoController {
 			int result = boardService.insertBoard(board);
 			System.out.println("insert result = "+result);
 		}
-		mav.setViewName("board");
+		mav.setViewName("redirect:/board");
 		return mav;
 	}
 }

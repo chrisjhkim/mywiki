@@ -11,4 +11,6 @@ public interface BoardService {
 	
 	public int insertBoard(Board board);
 	public List<HashMap<String, Object>> getBoardList();
+	
+	public Board getBoardContent(int contentNo);
 }
