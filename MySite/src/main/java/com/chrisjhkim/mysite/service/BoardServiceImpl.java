@@ -1,6 +1,7 @@
 package com.chrisjhkim.mysite.service;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.chrisjhkim.mysite.dao.BoardDAO;
 import com.chrisjhkim.mysite.vo.Board;
+import com.chrisjhkim.mysite.vo.Tag;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -48,6 +50,14 @@ public class BoardServiceImpl implements BoardService {
 	public Board getBoardContent(int contentNo) {
 		Board board = boardDao.getBoardContent(contentNo);
 		return board;
+	}
+
+	@Override
+	public int insertTags(int userNo, String[] tags) {
+		for ( int i = 0 ; i < tags.length ; i ++ ) {
+			boardDao.insertTag(new Tag(tags[i], userNo));
+		}
+		return 0;
 	}
 	
 	

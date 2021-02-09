@@ -1,5 +1,7 @@
 package com.chrisjhkim.mysite.vo;
 
+import java.util.List;
+
 public class Board {
 	
 	private int contentNo;
@@ -10,6 +12,8 @@ public class Board {
 	private String status;
 	
 	private String userId;
+	
+	private List<String> tagNames;
 	
 	public String getUserId() {
 		return userId;
@@ -53,10 +57,16 @@ public class Board {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public List<String> getTagNames() {
+		return tagNames;
+	}
+	public void setTagNames(List<String> tagNames) {
+		this.tagNames = tagNames;
+	}
 	@Override
 	public String toString() {
 		return "Board [contentNo=" + contentNo + ", title=" + title + ", content=" + content + ", userNo=" + userNo
-				+ ", regDate=" + regDate + ", status=" + status + ", userId=" + userId + "]";
+				+ ", regDate=" + regDate + ", status=" + status + ", userId=" + userId + ", tagNames=" + tagNames + "]";
 	}
 
 	

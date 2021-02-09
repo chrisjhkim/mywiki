@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.chrisjhkim.mysite.vo.Board;
+import com.chrisjhkim.mysite.vo.Tag;
 
 @Mapper
 public interface BoardDAO {
@@ -17,6 +18,9 @@ public interface BoardDAO {
 	public List<HashMap<String, Object>> getActiveBoardList(Map<String, Object> map);
 	public Board getBoardContent(int contentNo);
 	
+	
+	public int insertTag(Tag tag);
+	public List<Tag> getTagList(List<String> tagList);
 	// select * from tag table where value = map.value ;
 //	public Tag getTag(Hashmap map);
 	// insert into tag table
