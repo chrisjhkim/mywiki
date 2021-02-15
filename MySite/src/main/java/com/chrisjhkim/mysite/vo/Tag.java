@@ -1,6 +1,7 @@
 package com.chrisjhkim.mysite.vo;
 
 public class Tag {
+	/// Test
 	String tagName;
 	int contentNo;
 
