@@ -19,8 +19,9 @@ public interface BoardDAO {
 	public Board getBoardContent(int contentNo);
 	
 	
-	public int insertTag(Tag tag);
-	public List<Tag> getTagList(List<String> tagList);
+//	public int insertTag(Tag tag);
+	public int insertTags(List<Tag> list);
+	public List<Tag> getTagList(int contentNo);
 	// select * from tag table where value = map.value ;
 //	public Tag getTag(Hashmap map);
 	// insert into tag table

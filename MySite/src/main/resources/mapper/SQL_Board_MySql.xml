@@ -51,6 +51,18 @@
 			,1
 		)
 	</insert>
+	<insert id="insertTags" parameterType="com.chrisjhkim.mysite.vo.Tag">
+		INSERT INTO tag(
+			contentNo
+			,tagName
+		)VALUES
+		<foreach item="item" index="index" collection="list">
+			(
+		 #{item.contentNo}
+		 ,#{item.tagName}
+		)
+		</foreach>
+	</insert>
 	<insert id="insertUser" parameterType="com.chrisjhkim.mysite.vo.User">
 		INSERT INTO user(
 			userId
@@ -67,5 +79,11 @@
 		)
 		
 	</insert>
-	
+	<select id="getTagList" parameterType="int" resultType="com.chrisjhkim.mysite.vo.Tag" >
+		SELECT 
+			tagName
+			,contentNo
+		FROM tag
+		WHERE contentNo = #{contentNo}
+	</select>
 </mapper>

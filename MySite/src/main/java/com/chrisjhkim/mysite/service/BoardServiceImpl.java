@@ -53,12 +53,27 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int insertTags(int userNo, String[] tags) {
+	public int insertTags(int contentNo, String[] tags) {
+		List<Tag> list = new ArrayList<Tag>();
 		for ( int i = 0 ; i < tags.length ; i ++ ) {
-			boardDao.insertTag(new Tag(tags[i], userNo));
+			list.add(new Tag(tags[i], contentNo));
 		}
-		return 0;
+		return insertTags(list);
 	}
+
+	@Override
+	public int insertTags(List<Tag> list) {
+		int result = -1;
+		result = boardDao.insertTags(list);
+		return result;
+	}
+
+	@Override
+	public List<String> getTagList(int contentNo) {
+		boardDao.getTagList(contentNo);
+		return null;
+	}
+	
 	
 	
 
