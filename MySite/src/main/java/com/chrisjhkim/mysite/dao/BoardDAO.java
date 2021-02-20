@@ -21,10 +21,14 @@ public interface BoardDAO {
 	
 //	public int insertTag(Tag tag);
 	public int insertTags(List<Tag> list);
+<<<<<<< HEAD
 
 	public int updateBoardContent(Board board);
 	public List<Tag> getTagList(int contentNo);
 
+=======
+	public List<Tag> getTagList(int contentNo);
+>>>>>>> refs/remotes/origin/master
 	// select * from tag table where value = map.value ;
 //	public Tag getTag(Hashmap map);
 	// insert into tag table

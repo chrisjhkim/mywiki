@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.chrisjhkim.mysite.vo.Board;
+import com.chrisjhkim.mysite.vo.Tag;
 import com.chrisjhkim.mysite.service.BoardService;
 import com.chrisjhkim.mysite.service.UserService;
 

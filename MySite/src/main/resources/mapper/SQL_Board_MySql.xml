@@ -80,6 +80,7 @@
 		)
 		
 	</insert>
+<<<<<<< HEAD
 	<update id="updateBoardContent" parameterType="com.chrisjhkim.mysite.vo.Board" >
 		UPDATE board
 		SET title = #{title}
@@ -94,6 +95,8 @@
 		SET status = 0
 		WHERE contentNo = #{contentNo}
 	</update>
+=======
+>>>>>>> refs/remotes/origin/master
 	<select id="getTagList" parameterType="int" resultType="com.chrisjhkim.mysite.vo.Tag" >
 		SELECT 
 			tagName

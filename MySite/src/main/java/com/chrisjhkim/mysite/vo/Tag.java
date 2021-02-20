@@ -1,30 +1,32 @@
 package com.chrisjhkim.mysite.vo;
 
 public class Tag {
+	/// Test
 	String tagName;
-	int userNo;
-	
-	public Tag(String tagName, int userNo) {
+	int contentNo;
+
+	public Tag(String tagName, int contentNo) {
 		super();
 		this.tagName = tagName;
-		this.userNo = userNo;
+		this.contentNo = contentNo;
 	}
+
 	public String getTagName() {
 		return tagName;
 	}
 	public void setTagName(String tagName) {
 		this.tagName = tagName;
 	}
-	public int getUserNo() {
-		return userNo;
+	public int getContentNo() {
+		return contentNo;
 	}
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
+	public void setContentNo(int contentNo) {
+		this.contentNo = contentNo;
 	}
 	@Override
 	public String toString() {
-		return "Tag [tagName=" + tagName + ", userNo=" + userNo + "]";
+		return "Tag [tagName=" + tagName + ", contentNo=" + contentNo + "]";
 	}
-
+	
 	
 }
