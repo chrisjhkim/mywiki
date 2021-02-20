@@ -9,25 +9,13 @@
 <meta name="viewport" content="width=device-width", initial-scale="1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
-<title>Write Page 002</title>
-<script type="text/javascript">
-function checkValues(){
-	if( $("#title").val() == '' ){
-		alert('제목을 입력하세요');
-		return false;
-	}
-	if( $("#content").val() == '' ){
-		alert('내용을 입력하세요');
-		return false;
-	}
-}
-</script>
+<title>Write Page 001</title>
 </head>
 <body>
 	<%
-		String userId = null;
+		String userID = null;
 		if (session.getAttribute("userId")!=null){
-			userId = (String)session.getAttribute("userId");
+			userID = (String)session.getAttribute("userID");
 		}
 	%>
 
@@ -48,7 +36,7 @@ function checkValues(){
 				<li class="active"><a href="board">게시판</a>
 			</ul>
 			<%
-				if( userId == null ) {
+				if( userID == null ) {
 					
 			%>
 			<ul class="nav navbar-nav navbar-right">
@@ -85,7 +73,7 @@ function checkValues(){
 	</nav>
 	<div class="container">
 		<div class="row">
-			<form method="post" action="writeAction" onsubmit="return checkValues()">
+			<form method="post" action="editAction">
 				<table class="table table-striped" style="text-align:center; border: 1px solid #dddddd">
 					<thead>
 						<tr>
@@ -94,13 +82,15 @@ function checkValues(){
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control" placeholder="글 제목" value="${board.title}" id="title" name="title" maxlength="50"> </td>
+							<td><input type="text" class="form-control" placeholder="글 제목" value="${board.title}" name="title" maxlength="50"> </td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="글 내용" id="content" name="content" maxlength="2048" style="height: 350px;">${board.content}</textarea> </td>
+							<td><textarea class="form-control" placeholder="글 내용" name="content" maxlength="2048" style="height: 350px;">${board.content}</textarea> </td>
 						</tr>
 					</tbody>
 				</table>
+				<input type="hidden" name="contentNo" value="${board.contentNo }" >
+				<input type="hidden" name="userNo" value="${board.userNo }" >
 				<input type="submit" class="btn btn-primary pull-right" value="글쓰기">
 			</form>
 		</div>

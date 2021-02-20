@@ -109,7 +109,7 @@
 					<tbody>
 						<c:forEach var="board" items="${boardList}">
 						<tr>
-							<td>${board.contentNo}</td>
+							<td><a href="view?no=${board.contentNo}">${board.contentNo}</a></td>
 							<td><a href="view?no=${board.contentNo}">${board.title.replaceAll("<", "&lt;")
 																			.replaceAll(" ", "&nbsp;")
 																			.replaceAll("<", "&lt;")
@@ -118,22 +118,8 @@
 							<td>${board.regDate.substring(0,11)} ${board.regDate.substring(11,13)}시 ${board.regDate.substring(14,16)}분 </td>
 						</tr>
 						</c:forEach>
-						<%
-							//BbsDAO bbsDAO = new BbsDAO();
-							//ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
-							//for ( int i = 0 ; i < list.size() ; i ++ ) {
-						%>
-						<tr>
-							<td>13</td>
-							<td><a href="view?no=13">13번글</a></td>
-							<td>13유저</td>
-	 						<td>대충 시간 00시00분</td>
-						</tr>
-						<%
-							//}
-						%>
 					</tbody>
-				</table>
+				</table>	
 				<% 
 					//if( pageNumber != 1 ) {
 						

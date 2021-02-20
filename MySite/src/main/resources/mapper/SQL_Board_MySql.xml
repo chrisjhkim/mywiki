@@ -21,7 +21,7 @@
 		FROM board b 
 		LEFT JOIN users ON users.userNo = b.userNo
 		WHERE b.status=1
-		ORDER BY b.regDate DESC
+		ORDER BY b.contentNo DESC
 	</select>
 	<select id="getBoardContent" parameterType="int" resultType="com.chrisjhkim.mysite.vo.Board">
 		SELECT 
@@ -30,7 +30,8 @@
 			, b.content
 			, b.regDate
 			, b.status
-			, users.userId  
+			, users.userId
+			, b.userNo  
 		FROM board b 
 		LEFT JOIN users ON users.userNo = b.userNo
 		WHERE b.contentNo=#{contentNo}
@@ -51,6 +52,18 @@
 			,1
 		)
 	</insert>
+	<insert id="insertTags" parameterType="com.chrisjhkim.mysite.vo.Tag">
+		INSERT INTO tag(
+			contentNo
+			,tagName
+		)VALUES
+		<foreach item="item" index="index" collection="list">
+			(
+		 #{item.contentNo}
+		 ,#{item.tagName}
+		)
+		</foreach>
+	</insert>
 	<insert id="insertUser" parameterType="com.chrisjhkim.mysite.vo.User">
 		INSERT INTO user(
 			userId
@@ -67,5 +80,25 @@
 		)
 		
 	</insert>
-	
+	<update id="updateBoardContent" parameterType="com.chrisjhkim.mysite.vo.Board" >
+		UPDATE board
+		SET title = #{title}
+			,content = #{content}
+			,userNo = #{userNo}
+			,regDate = NOW()
+			,status = #{status}
+		WHERE contentNo = #{contentNo}
+	</update>
+	<update id="disableBoardContent" parameterType="int" >
+		UPDATE board
+		SET status = 0
+		WHERE contentNo = #{contentNo}
+	</update>
+	<select id="getTagList" parameterType="int" resultType="com.chrisjhkim.mysite.vo.Tag" >
+		SELECT 
+			tagName
+			,contentNo
+		FROM tag
+		WHERE contentNo = #{contentNo}
+	</select>
 </mapper>

@@ -56,4 +56,17 @@ public class UserServiceImpl implements UserService {
 			return ReturnCode.USER_OK;
 		}
 	}
+
+	/**
+	 * returns -1 if user null
+	 */
+	@Override
+	public int getUserNoByUserId(String userId) {
+		int userNo = -1 ;
+		User user = userDao.selectUserByUserId(userId);
+		if ( user != null ) {
+			userNo = user.getUserNo();
+		}
+		return userNo;
+	}
 }

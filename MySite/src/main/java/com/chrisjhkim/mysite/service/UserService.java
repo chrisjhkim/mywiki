@@ -7,7 +7,7 @@ public interface UserService {
 	public int registerUser(User user);
 	
 	public boolean isNewIdOk(String userId);
-	
+	public int getUserNoByUserId(String userId);
 	public int selectUserByIdAndPw(String userId, String userPw);
 	
 }
