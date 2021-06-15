@@ -18,13 +18,10 @@ public interface BoardService {
 	public int insertTags(int contentNo, String[] tags);
 	public int insertTags(List<Tag>list);
 	public List<String> getTagList(int contentNo);
-<<<<<<< HEAD
 
 	public int updateBoardContent(Board board);
 	
 	public int disableBoardContent(int contentNo);
-=======
->>>>>>> refs/remotes/origin/master
 //	public List<Tag> getTagList(int userNo);
 //	public List<Tag> getTagList()
 }

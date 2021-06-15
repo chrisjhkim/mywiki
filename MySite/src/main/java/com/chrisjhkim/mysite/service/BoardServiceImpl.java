@@ -73,6 +73,18 @@ public class BoardServiceImpl implements BoardService {
 		boardDao.getTagList(contentNo);
 		return null;
 	}
+
+	@Override
+	public int updateBoardContent(Board board) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int disableBoardContent(int contentNo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 	
